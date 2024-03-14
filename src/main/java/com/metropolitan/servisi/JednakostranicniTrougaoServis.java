@@ -1,22 +1,25 @@
 package com.metropolitan.servisi;
 
+import com.metropolitan.PositiveAttribute;
 import org.springframework.stereotype.Service;
 
+
 @Service
-public class JednakostranicniTrougaoServis implements OblikServis {
-    private double stranica;
+public class JednakostranicniTrougaoServis {
 
-    public JednakostranicniTrougaoServis(double stranica) {
-        this.stranica = stranica;
+    @PositiveAttribute
+    public double racunajObim(double duzinaStranice) {
+        if (duzinaStranice <= 0) {
+            throw new IllegalArgumentException("Duzina stranice mora biti pozitivan broj");
+        }
+        return 3 * duzinaStranice;
     }
 
-    @Override
-    public double racunajObim() {
-        return 3 * stranica;
-    }
-
-    @Override
-    public double racunajPovrsinu() {
-        return (Math.sqrt(3) / 4) * stranica * stranica;
+    @PositiveAttribute
+    public double racunajPovrsinu(double duzinaStranice) {
+        if (duzinaStranice <= 0) {
+            throw new IllegalArgumentException("Duzina stranice mora biti pozitivan broj");
+        }
+        return (Math.sqrt(3) / 4) * duzinaStranice * duzinaStranice;
     }
 }

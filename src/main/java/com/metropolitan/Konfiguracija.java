@@ -12,15 +12,15 @@ public class Konfiguracija {
 
     @Bean
     public KvadratServis kvadratServis() {
-        return new KvadratServis(5);
+        return new KvadratServis();
     }
     @Bean
     public KrugServis krugServis() {
-        return new KrugServis(3.3);
+        return new KrugServis();
     }
     @Bean
     public JednakostranicniTrougaoServis trougaoServis() {
-        return new JednakostranicniTrougaoServis(4.7);
+        return new JednakostranicniTrougaoServis();
     }
 
 }
